@@ -8,5 +8,6 @@ namespace TestMasivian.Controllers
 {
     public class RouletteController : ControllerBase
     {
+
     }
 }

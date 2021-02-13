@@ -5,10 +5,11 @@ namespace TestMasivian.Interfaces
 {
     public interface IRepository<T> where T : BaseEntity
     {
-        T GetById(int id);
-        IList<T> ListAll();
         T Add(T entity);
+      
+        T GetById(int id);
         T Update(T entity);
-        T Delete(T entity);
+        IList<T> ListAll();
+
     }
 }
