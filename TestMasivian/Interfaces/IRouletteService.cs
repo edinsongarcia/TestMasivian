@@ -6,7 +6,7 @@ using TestMasivian.Models;
 
 namespace TestMasivian.Interfaces
 {
-    public class IRouletteService
+    public interface IRouletteService
     {
         public Roulette CreateRoullete();
         public bool OpenRoulete(int id);

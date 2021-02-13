@@ -6,7 +6,7 @@ using TestMasivian.Models;
 
 namespace TestMasivian.Interfaces
 {
-    public class IBetService : IBetService
+    public interface IBetService
     {
         public bool MakeBet(Bet bet);
         public IList<Bet> GetBetsByRouletteId(int idRoulette);
