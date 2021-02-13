@@ -25,5 +25,13 @@ namespace TestMasivian.Controllers
         {
             return _rouletteService.GetRoulettes().ToList();
         }
+
+        [HttpGet("CreateRoulette")]
+        public ActionResult CreateRoulette()
+        {
+            Roulette rouletteinstance = _rouletteService.CreateRoullete();
+
+            return Ok(rouletteinstance.Id);
+        }
     }
 }

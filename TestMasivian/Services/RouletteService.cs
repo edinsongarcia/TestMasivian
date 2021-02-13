@@ -18,7 +18,7 @@ namespace TestMasivian.Services
         {
             return _rouletteRepository.ListAll();
         }
-        public Roulette CloseRoulette(int id)
+        public Roulette CloseRoulette(long id)
         {
             Roulette roulette = _rouletteRepository.GetById(id);
             roulette.IsOpen = false;
@@ -31,11 +31,11 @@ namespace TestMasivian.Services
             return _rouletteRepository.Add(roulette);
         }
 
-        public Roulette GetRoulette(int id)
+        public Roulette GetRoulette(long id)
         {
             return _rouletteRepository.GetById(id);
         }
-        public bool OpenRoulete(int id)
+        public bool OpenRoulete(long id)
         {
             Roulette roulette = _rouletteRepository.GetById(id);
             if (roulette != null && roulette.IsOpen)

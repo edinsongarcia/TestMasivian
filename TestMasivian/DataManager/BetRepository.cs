@@ -20,7 +20,7 @@ namespace TestMasivian.DataManager
             throw new NotImplementedException();
         }
 
-        public Bet GetById(int id)
+        public Bet GetById(long id)
         {
             throw new NotImplementedException();
         }

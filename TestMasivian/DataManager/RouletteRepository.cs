@@ -19,10 +19,25 @@ namespace TestMasivian.DataManager
 
         public Roulette Add(Roulette entity)
         {
-            throw new NotImplementedException();
+            IDatabase db = _connectionMultiplexer.GetDatabase();
+            RedisKey key = new RedisKey("ListRoulette");
+            IList<Roulette> roulettes = ListAll();
+            if (roulettes == null)
+            {
+                entity.Id = 0;
+                roulettes = new List<Roulette>() { entity };
+            }
+            else
+            {
+                entity.Id = roulettes.Last().Id + 1;
+                roulettes.Add(entity);
+            }
+            db.StringSet(key, JsonConvert.SerializeObject(roulettes));
+
+            return entity;
         }
 
-        public Roulette GetById(int id)
+        public Roulette GetById(long id)
         {
             throw new NotImplementedException();
         }
