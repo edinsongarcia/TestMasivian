@@ -14,6 +14,10 @@ namespace TestMasivian.Services
         {
             _rouletteRepository = rouletteRepository;
         }
+        public IList<Roulette> GetRoulettes()
+        {
+            return _rouletteRepository.ListAll();
+        }
         public Roulette CloseRoulette(int id)
         {
             Roulette roulette = _rouletteRepository.GetById(id);
@@ -26,10 +30,7 @@ namespace TestMasivian.Services
 
             return _rouletteRepository.Add(roulette);
         }
-        public IList<Roulette> GetListRouletteWithState()
-        {
-            return _rouletteRepository.ListAll();
-        }
+
         public Roulette GetRoulette(int id)
         {
             return _rouletteRepository.GetById(id);

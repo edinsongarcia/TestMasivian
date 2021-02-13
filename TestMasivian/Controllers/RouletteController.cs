@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TestMasivian.Interfaces;
+using TestMasivian.Models;
 
 namespace TestMasivian.Controllers
 {
@@ -17,6 +18,12 @@ namespace TestMasivian.Controllers
         {
             _rouletteService = rouletteService;
             _betService = betService;
+        }
+
+        [HttpGet("GetRoulettes")]
+        public List<Roulette> GetRoulettes()
+        {
+            return _rouletteService.GetRoulettes().ToList();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using StackExchange.Redis;
+﻿using Newtonsoft.Json;
+using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,19 @@ namespace TestMasivian.DataManager
 
         public IList<Roulette> ListAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+                IDatabase db = _connectionMultiplexer.GetDatabase();
+                RedisKey key = new RedisKey("ListRoulette");
+                string listJson = db.StringGet(key);
+
+                return listJson != null ? JsonConvert.DeserializeObject<IList<Roulette>>(listJson) : null;
+            }
+            catch (Exception e)
+            {
+                var err = e;
+                throw;
+            }
         }
 
         public Roulette Update(Roulette entity)
