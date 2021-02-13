@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/Roulette/GetListOfRoulettesWithState",
+      "launchUrl": "api/Roulette/GetRoulettes",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

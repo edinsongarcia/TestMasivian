@@ -18,7 +18,7 @@ namespace TestMasivian.Services
             _betRepository = betRepository;
 
         }
-        public IList<Bet> GetBetsByRouletteId(int idRoulette)
+        public IList<Bet> GetBetsByRouletteId(long idRoulette)
         {
             return _betRepository.ListAll().Where(bet => bet.RouletteId == idRoulette).ToList();
         }
@@ -27,7 +27,7 @@ namespace TestMasivian.Services
             var roulette = _rouletteRepository.GetById(bet.RouletteId);
             if (roulette != null && roulette.IsOpen && bet.Amount > 0 && bet.Amount <= 10000 && bet.Number >= 0 && bet.Number <= 36)
             {
-                bet.BetDate = DateTime.UtcNow.ToString("o");
+                bet.BetDate = DateTime.UtcNow;
                 _betRepository.Add(bet);
 
                 return true;

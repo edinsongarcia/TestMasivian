@@ -9,9 +9,9 @@ namespace TestMasivian.Interfaces
     public interface IRouletteService
     {
         public Roulette CreateRoullete();
-        public bool OpenRoulete(int id);
-        public Roulette GetRoulette(int id);
+        public bool OpenRoulete(long id);
+        public Roulette GetRoulette(long id);
         public IList<Roulette> GetRoulettes();
-        public Roulette CloseRoulette(int id);
+        public Roulette CloseRoulette(long id);
     }
 }

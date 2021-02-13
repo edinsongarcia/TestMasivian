@@ -9,7 +9,7 @@ namespace TestMasivian.Interfaces
     public interface IBetService
     {
         public bool MakeBet(Bet bet);
-        public IList<Bet> GetBetsByRouletteId(int idRoulette);
+        public IList<Bet> GetBetsByRouletteId(long idRoulette);
 
     }
 }
