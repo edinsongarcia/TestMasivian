@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TestMasivian.Models;
 
 namespace TestMasivian.Interfaces
@@ -9,6 +10,8 @@ namespace TestMasivian.Interfaces
         T GetById(long id);
         T Update(T entity);
         IList<T> ListAll();
+        Tuple<int,string> GetResultsRoulette();
+
 
     }
 }

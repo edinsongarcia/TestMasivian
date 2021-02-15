@@ -39,7 +39,16 @@ namespace TestMasivian.DataManager
 
         public Bet GetById(long id)
         {
+
             return ListAll().FirstOrDefault(roulettes => roulettes.Id == id);
+        }
+
+        public Tuple<int, string> GetResultsRoulette()
+        {
+            int numberWin = new Random().Next(0, 36);
+            string color = numberWin % 2 == 0 ? "Red" : "Black";
+
+            return new Tuple<int, string>(numberWin, color);
         }
 
         public IList<Bet> ListAll()

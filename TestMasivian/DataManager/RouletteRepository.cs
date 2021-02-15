@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using StackExchange.Redis;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TestMasivian.Interfaces;
@@ -59,6 +60,11 @@ namespace TestMasivian.DataManager
             db.StringSet(key, JsonConvert.SerializeObject(roulettes));
 
             return entity;
+        }
+
+        public Tuple<int, string> GetResultsRoulette()
+        {
+            throw new NotImplementedException();
         }
     }
 }
