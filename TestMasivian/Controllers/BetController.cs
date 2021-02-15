@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
 using TestMasivian.Interfaces;
+using TestMasivian.Models;
 
 namespace TestMasivian.Controllers
 {
@@ -15,6 +17,27 @@ namespace TestMasivian.Controllers
         public BetController(IBetService betService)
         {
             _betService = betService;
+        }
+        [HttpPost("AddBet")]
+        public ActionResult AddBet([FromBody] Bet bet)
+        {
+            StringValues idUser;
+            Request.Headers.TryGetValue("IdUser", out idUser);
+            if (idUser != string.Empty)
+                if (_betService.AddBet(bet))
+
+                    return Ok("Apuesta realizada correctamente");
+                else
+
+                    return Ok("No se realizo la apuesta");
+            else
+
+                return Ok("El usuario no se encuentra registrado");
+        }
+        [HttpGet("GetBets")]
+        public List<Bet> GetBets()
+        {
+            return _betService.GetBets().ToList();
         }
     }
 }

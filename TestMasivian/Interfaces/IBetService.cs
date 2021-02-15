@@ -8,8 +8,9 @@ namespace TestMasivian.Interfaces
 {
     public interface IBetService
     {
-        public bool MakeBet(Bet bet);
+        public bool AddBet(Bet bet);
         public IList<Bet> GetBetsByRouletteId(long idRoulette);
+        public IList<Bet> GetBets();
 
     }
 }

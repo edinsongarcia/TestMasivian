@@ -22,7 +22,11 @@ namespace TestMasivian.Services
         {
             return _betRepository.ListAll().Where(bet => bet.RouletteId == idRoulette).ToList();
         }
-        public bool MakeBet(Bet bet)
+        public IList<Bet> GetBets()
+        {
+            return _betRepository.ListAll();
+        }
+        public bool AddBet(Bet bet)
         {
             var roulette = _rouletteRepository.GetById(bet.RouletteId);
             if (roulette != null && roulette.IsOpen && bet.Amount > 0 && bet.Amount <= 10000 && bet.Number >= 0 && bet.Number <= 36)
