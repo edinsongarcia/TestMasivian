@@ -29,9 +29,28 @@ namespace TestMasivian.Controllers
         [HttpGet("CreateRoulette")]
         public ActionResult CreateRoulette()
         {
-            Roulette rouletteinstance = _rouletteService.CreateRoullete();
+            Roulette roulette = _rouletteService.CreateRoullete();
 
-            return Ok(rouletteinstance.Id);
+            return Ok(roulette.Id);
+        }
+
+        [HttpPost("OpenRoulette/{id}")]
+        public ActionResult OpenRoulette(long id)
+        {
+            if (_rouletteService.OpenRoulete(id))
+
+                return Ok("La ruleta ha sido abierta con exito");
+            else
+
+                return Ok("No se pudo abrir la ruleta seleccionada");
+        }
+
+        [HttpPost("CloseRoulette/{id}")]
+        public ActionResult CloseRoulette(int id)
+        {
+            _rouletteService.CloseRoulette(id);
+
+            return Ok(_betService.GetBetsByRouletteId(id));
         }
     }
 }
