@@ -8,8 +8,9 @@ namespace TestMasivian.Models
     public class Bet : BaseEntity
     {
         public long RouletteId { set; get; }
-        public DateTime BetDate { get; set; }
+        public string BetDate { get; set; }
         public int Amount { get; set; }
+        public int AmountWon { get; set; }
         public int Number { get; set; }
         public string Color { get; set; }
         

@@ -10,18 +10,20 @@ namespace TestMasivian.Services
     public class RouletteService : IRouletteService
     {
         private readonly IRepository<Roulette> _rouletteRepository;
-        public RouletteService(IRepository<Roulette> rouletteRepository, IRepository<Bet> betRepository)
+        public RouletteService(IRepository<Roulette> rouletteRepository)
         {
             _rouletteRepository = rouletteRepository;
         }
         public IList<Roulette> GetRoulettes()
-        {
+        { 
+
             return _rouletteRepository.ListAll();
         }
         public Roulette CloseRoulette(long id)
         {
             Roulette roulette = _rouletteRepository.GetById(id);
             roulette.IsOpen = false;
+
             return _rouletteRepository.Update(roulette);
         }
         public Roulette CreateRoullete()
@@ -33,6 +35,7 @@ namespace TestMasivian.Services
 
         public Roulette GetRoulette(long id)
         {
+
             return _rouletteRepository.GetById(id);
         }
         public bool OpenRoulete(long id)
